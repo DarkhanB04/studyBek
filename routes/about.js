@@ -1,10 +1,13 @@
 const express= require("express");
 const router = express.Router();
+
+const ejs = require('ejs')
+
 var path = require('path');
 router
     .route("/")
     .get((req, res)=> {
-        res.sendFile(path.resolve("html/about.html"))
+        res.render(path.resolve('views/about.ejs'))
     })
     .post((req, res) =>{
         res.send("POST")

@@ -3,6 +3,8 @@ const router = express.Router();
 const ejs = require('ejs')
 const app=express()
 
+const Post = require('../models/UserModel')
+const UserAddController = require('../controllers/UserController')
 const https = require('https')
 var path = require('path');
 app.set('view engine', 'ejs')
@@ -15,7 +17,7 @@ router
 
         }
     )})
-
+        .post(UserAddController.addUser)
   .post( (req, res) =>{
            let cityName = req.body.cityname
            let key ="7a42acf8f3a374601d78b15f5dfce724"

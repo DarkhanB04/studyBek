@@ -19,7 +19,7 @@ app.use('/user', UserRoute)
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 const {router} = require("express/lib/application");
-const {destroy, findAll, findOne, create} = require("./controllers/UserController");
+const {destroy, findAll, findOne, addUser} = require("./controllers/UserController");
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
@@ -33,7 +33,7 @@ mongoose.connect(dbConfig.url, {
 
 
 app.post('/', (req, res) => {
-    create(req,res)
+    addUser(req,res)
 });
 
 app.get('/read', (req, res) => {

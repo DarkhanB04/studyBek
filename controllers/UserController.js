@@ -1,11 +1,13 @@
 const UserModel = require('../models/UserModel')
 // Create and Save a new user
 module.exports.addUser = (req,res)=> {
-    let newUsers = new Users({
-        Username: req.body.username,
-        Email: req.body.email,
+    let user = new UserModel({
+        firstName: req.body.firstName,
+        phone: req.body.phone,
+        email: req.body.email,
+        mes: req.body.mes,
     })
-    newUsers.save();
+    user.save();
     res.redirect('/');
 }
 // Retrieve all users from the database.
